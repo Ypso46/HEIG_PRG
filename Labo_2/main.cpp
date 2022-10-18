@@ -7,10 +7,9 @@ using namespace std;
 int main() {
     int infValue = 0;
     int supValue = 0;
-    int userValue = 0;
-
+    int guessNumber = 0;
+    char userChoice = 0;
     char gameOrTest;
-
 
     string choicePhrase =  "Enter 'g' for game mode and 't' for test)";
 
@@ -39,23 +38,24 @@ int main() {
         cout << "Your inferior value is: " << infValue << endl;
         cout << "Your superior value is: " << supValue << endl;
 
-        char userChoice = 0;
-
         cout << "Choose a number in this range and answer the questions with 'y' for yes and 'n' for no." << endl;
 
-        while (infValue != supValue ) {
-            int guess = (supValue + infValue) / 2;
-            cout << "Is your number smaller or equal to " << guess << endl;
-            cin >> userChoice;
 
-            if (userChoice == 'y') {
-                supValue = guess;
-            } else if (userChoice == 'n') {
-                infValue = guess + 1;
-            } else {
-                cout << "Error, choose 'y' or 'n'" << endl;
-            }
-        }
+
+        do {
+                int guess = (supValue + infValue) / 2;
+                cout << "Is your number smaller or equal to " << guess << endl;
+                cin >> userChoice;
+
+                if (userChoice == 'y') {
+                    supValue = guess;
+                } else if (userChoice == 'n') {
+                    infValue = guess + 1;
+                } else {
+                    cout << "Error, choose 'y' or 'n'" << endl;
+                }
+        } while (infValue != supValue );
+
         cout << "Your number is: " << infValue << endl;
 
     } else if (gameOrTest == 't') {
@@ -77,31 +77,38 @@ int main() {
             cin >> supValue;
         }
 
+        cout << "Enter a number to be guessed: " << endl;
+        cin >> guessNumber;
+
+        while (guessNumber > supValue || guessNumber < infValue) {
+            cout << "Wrong value, please choose again:" << endl;
+            cin >> guessNumber;
+        }
+
         cout << "Your inferior value is: " << infValue << endl;
         cout << "Your superior value is: " << supValue << endl;
+        cout << "Your number to be guessed is: " << guessNumber << endl;
 
-        srand(time(NULL));
-        int randomNumber = rand() % (infValue-supValue) + 1;
-        cout << "Your random number is: " << randomNumber << endl;
-
-
-        char userChoice = 0;
+//        srand(time(NULL));
+//        int randomNumber = rand() % (infValue-supValue) + 1;
+//        cout << "Your random number is: " << randomNumber << endl;
 
         cout << "Choose a number in this range and answer the questions with 'y' for yes and 'n' for no." << endl;
 
-        while (infValue != supValue ) {
+        do {
             int guess = (supValue + infValue) / 2;
             cout << "Is your number smaller or equal to " << guess << endl;
             cin >> userChoice;
 
-            if (userChoice == 'y') {
+            if (guessNumber > guess) {
+                userChoice == 'y';
                 supValue = guess;
-            } else if (userChoice == 'n') {
-                infValue = guess + 1;
-            } else {
-                cout << "Error, choose 'y' or 'n'" << endl;
-            }
-        }
+            } else if (guessNumber < guess) {
+                   userChoice == 'n';
+                   infValue = guess + 1;
+                 }
+        } while (infValue != supValue );
+
         cout << "Your number is: " << infValue << endl;
 
     } else {
