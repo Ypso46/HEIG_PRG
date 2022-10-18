@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Greg/Documents/PRG/Semestre_1/Labo_2
+# Install script for directory: C:/Users/Greg/Dev/HEIG_PRG/Labo_2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/untitled1")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Labo_2")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Greg/Documents/PRG/Semestre_1/Labo_2/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Greg/Dev/HEIG_PRG/Labo_2/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
