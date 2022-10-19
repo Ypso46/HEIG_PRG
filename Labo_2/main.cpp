@@ -10,10 +10,10 @@ int main() {
     int guessNumber = 0;
     char userChoice = 0;
     char gameOrTest;
+    string yesOrNo = "Answer the questions with 'y' for yes and 'n' for no.";
+    string modeChoice =  "Enter 'g' for game mode and 't' for test)";
 
-    string choicePhrase =  "Enter 'g' for game mode and 't' for test)";
-
-    cout << choicePhrase << endl;
+    cout << modeChoice << endl;
     cin >> gameOrTest;
 
     if (gameOrTest == 'g') {
@@ -39,8 +39,6 @@ int main() {
         cout << "Your superior value is: " << supValue << endl;
 
         cout << "Choose a number in this range and answer the questions with 'y' for yes and 'n' for no." << endl;
-
-
 
         do {
                 int guess = (supValue + infValue) / 2;
@@ -89,28 +87,70 @@ int main() {
         cout << "Your superior value is: " << supValue << endl;
         cout << "Your number to be guessed is: " << guessNumber << endl;
 
-//        srand(time(NULL));
-//        int randomNumber = rand() % (infValue-supValue) + 1;
-//        cout << "Your random number is: " << randomNumber << endl;
+       
+        char modeChoice;
 
-        cout << "Choose a number in this range and answer the questions with 'y' for yes and 'n' for no." << endl;
+        cout << "For random mode enter 'r' and for in the middle mode enter 'm'" << endl;
+        cin >> modeChoice;
 
+        if (modeChoice == 'r') {
+           
+            cout << yesOrNo << endl;
+           
+
+            
+            int randomNumber = 0;
+            int seed = time(NULL);
+            //cout << "The seed is: " << seed << endl;
+            srand(seed);
+            
+            do {
+            
+                //cout << "Je pense que le nombre est compris entre: " << infValue << " et " << supValue << " (inclus)" << endl;
+            
+                //code to generate a random number between supValue exclusive and infValue inclusive
+                randomNumber = rand() % (supValue - infValue) + infValue;
+
+                cout << "Is your number smaller or equal to " << randomNumber << "?" << endl;
+
+                if (guessNumber <= randomNumber) {
+                cout << "y" << endl;
+                supValue = randomNumber;
+            } else if (guessNumber > randomNumber) {
+                cout << "n" << endl;
+                infValue = randomNumber + 1;
+            } else {
+                cout << "Error, choose 'y' or 'n'" << endl;
+                }
+            }
+            while (infValue != supValue);
+            
+            cout << "Your number is: " << infValue << endl;
+             
+        } else if (modeChoice == 'm') {
+            //in the middle mode code here
+        } else {
+            cout << "Wrong letter, please choose between 'r' and 'm'." << endl;
+        }
+
+        
+/*
         do {
             int guess = (supValue + infValue) / 2;
-            cout << "Is your number smaller or equal to " << guess << endl;
+            cout << "Is your number smaller or equal to " << guess << "?" << endl;
             cin >> userChoice;
 
             if (guessNumber > guess) {
                 userChoice == 'y';
-                supValue = guess;
+                infValue = guess;
             } else if (guessNumber < guess) {
                    userChoice == 'n';
-                   infValue = guess + 1;
+                   supValue = guess + 1;
                  }
         } while (infValue != supValue );
 
         cout << "Your number is: " << infValue << endl;
-
+*/
     } else {
         cout << "Error!" << endl;
     }
