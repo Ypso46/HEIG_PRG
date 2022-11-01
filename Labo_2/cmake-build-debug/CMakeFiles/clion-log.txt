@@ -1,6 +1,1 @@
-/home/greg/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_CXX_FLAGS=-Wall -Wextra -Wconversion -Wsign-conversion -pedantic" -G "CodeBlocks - Unix Makefiles" -S /home/greg/Dev/HEIG/HEIG_PRG/HEIG_PRG/Labo_2 -B /home/greg/Dev/HEIG/HEIG_PRG/HEIG_PRG/Labo_2/cmake-build-debug
-CMake Error: CMake was unable to find a build program corresponding to "Unix Makefiles".  CMAKE_MAKE_PROGRAM is not set.  You probably need to select a different build tool.
-CMake Error: CMAKE_C_COMPILER not set, after EnableLanguage
-CMake Error: CMAKE_CXX_COMPILER not set, after EnableLanguage
--- Configuring incomplete, errors occurred!
-See also "/home/greg/Dev/HEIG/HEIG_PRG/HEIG_PRG/Labo_2/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+CMakeLists.txt not found in C:\Users\Greg\Dev\HEIG_PRG\Labo_2 Select CMakeLists.txt
